@@ -5,4 +5,4 @@ from flask_socketio import SocketIO
 db = SQLAlchemy()
 
 # Initialize the socketIO extension with CORS settings
-socketio = SocketIO(cors_allowed_origins"*")
+socketio = SocketIO(cors_allowed_origins="*")
