@@ -4,8 +4,10 @@ from api.tmdb_client import tmdb_get, tmdb_post, tmdb_delete
 from api.extensions import db
 from api.models.session import Session
 
-bp = Blueprint("auth", __name__, url_prefix="/auth")
+DEFAULT_PAGE = 1
+MAX_PAGE = 50
 
+bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 @bp.get("/guest-session")
 def guest_session():

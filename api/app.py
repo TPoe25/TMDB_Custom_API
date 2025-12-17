@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from flask import Flask
-from flasgger import Swagger
+from flasgger import Swagger # type: ignore
 
 from api.config import Config
-from api.extensions import db, socketio
+from api.extensions import db, socketio, cache
 
 from api.routes.health import bp as health_bp
 from api.routes.auth import bp as auth_bp
@@ -23,6 +23,9 @@ def create_app():
     db.init_app(app)
     Swagger(app)
     socketio.init_app(app)
+    cache.init_app(app)
+    
+    
 
     # Blueprints
     app.register_blueprint(health_bp)

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 from flask import Blueprint, jsonify, current_app
 
-bp = Blueprint("health", __name__, url_prefix="/health")
+DEFAULT_PAGE = 1
+MAX_PAGE = 50
 
+bp = Blueprint("health", __name__, url_prefix="/health")
 
 @bp.get("")
 def health():
