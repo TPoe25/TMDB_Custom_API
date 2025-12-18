@@ -9,7 +9,6 @@ This project uses The Movie Database (TMDB) API but is not endorsed or certified
 
 ## Author: Taylor Poe
 
-![TMDB logo](tmdb_custom_api/api/routes/static/images/primary_logo.svg)
 
 A Flask-based REST API that proxies and extends The Movie Database (TMDB), providing movie and TV discovery, search, trending data, and session management.
 The application runs fully locally with PostgreSQL and is tested via Postman.
