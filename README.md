@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Design Documents/images/tmdb-logo-primary.svg" width="300"/>
+  <img src="Design Documents/images/primary_logo.svg" width="300"/>
 </p>
 
 This project uses The Movie Database (TMDB) API but is not endorsed or certified by TMDB.
