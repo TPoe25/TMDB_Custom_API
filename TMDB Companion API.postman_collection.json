@@ -68,6 +68,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Search Movie (move is value)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/movies/search?q=anchorman&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "anchorman"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
