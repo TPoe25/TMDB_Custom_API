@@ -16,6 +16,10 @@ Flask-Caching
 TMDB API (v3 + v4 auth)
 Postman
 ```
+## Swagger Page
+```
+http://localhost:5000/apidocs/
+```
 
 ## Quick Start
 

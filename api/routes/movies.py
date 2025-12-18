@@ -21,37 +21,37 @@ def search_movies():
     tags:
       - Movies
     parameters:
-      - in: query
-        name: q
-        required: true
+      - in: "query"
+        name: "q"
+        required: "true"
         schema:
-          type: string
-        description: Movie search query (ex: pulp fiction)
-      - in: query
-        name: page
-        required: false
+          type: "string"
+        description: "Movie search query (ex: pulp fiction)"
+      - in: "query"
+        name: "page"
+        required: "false"
         schema:
-          type: integer
-          default: 1
-        description: Page number for pagination
-      - in: query
-        name: include_adult
-        required: false
+          type: "integer"
+          default: "1"
+        description: "Page number for pagination"
+      - in: "query"
+        name: "include_adult"
+        required: "false"
         schema:
-          type: boolean
-          default: false
-        description: Include adult results
-      - in: query
-        name: year
-        required: false
+          type: "boolean"
+          default: "false"
+        description: "Include adult results"
+      - in: "query"
+        name: "year"
+        required: "false"
         schema:
-          type: integer
-        description: Filter by release year (optional)
+          type: "integer"
+        description: "Filter by release year (optional)"
     responses:
       200:
-        description: Search results from TMDB
+        description: "Search results from TMDB"
       400:
-        description: Missing query
+        description: "Missing query"
     """
     query = request.args.get("q", type=str)
     page = request.args.get("page", 1, type=int)
@@ -82,13 +82,13 @@ def movie_details(movie_id):
     tags:
       - Movies
     parameters:
-      - in: path
-        name: movie_id
+      - in: "path"
+        name: "movie_id"
         required: true
-        schema: { type: integer }
+        schema: { type: "integer" }
     responses:
       200:
-        description: Movie details
+        description: "Movie details"
     """
     data, status = tmdb_get(f"/movie/{movie_id}")
     return jsonify(data), status
@@ -102,9 +102,9 @@ def movie_recommendations(movie_id):
     tags:
       - Movies
     parameters:
-      - in: query
-        name: page
-        schema: { type: integer, default: 1 }
+      - in: "query"
+        name: "page"
+        schema: { type: "integer", default: "1" }
     """
     page = max(1, min(request.args.get("page", 1, type=int), 50))
     data, status = tmdb_get(f"/movie/{movie_id}/recommendations", params={"page": page})
@@ -132,15 +132,15 @@ def add_movie_rating(movie_id):
     tags:
       - Movies
     requestBody:
-      required: true
+      required: "true"
       content:
         application/json:
           schema:
-            type: object
-            required: [value, session_id]
+            type: "object"
+            required: "[value, session_id]"
             properties:
-              value: { type: number, example: 8.5 }
-              session_id: { type: string }
+              value: { type: "number", example: 8.5 }
+              session_id: { type: "string" }
     """
     body = request.get_json() or {}
     value = body.get("value")
@@ -165,14 +165,14 @@ def delete_movie_rating(movie_id):
     tags:
       - Movies
     requestBody:
-      required: true
+      required: "true"
       content:
         application/json:
           schema:
-            type: object
-            required: [session_id]
+            type: "object"
+            required: "[session_id]"
             properties:
-              session_id: { type: string }
+              session_id: { type: "string" }
     """
     body = request.get_json() or {}
     session_id = body.get("session_id")
