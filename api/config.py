@@ -19,8 +19,11 @@ class Config:
 
     SWAGGER = {
         "title": "TMDB API companion",
-        "description": "A simple API for retrieving movie data from the TMDB API.",
-        "version": "1.0",
+        "description": (
+            "<img src='/static/images/primary_logo.svg' width='200' alt='TMDB Logo'/><br>"
+            " Use this API to search for movies, TV shows, and perform other operations."
+        ),
+        "uiversion": 3,
         "contact": {
             "name": "Taylor Poe",
             "email": "taylor.poe@atlasstudents.com"
