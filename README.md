@@ -168,3 +168,34 @@ Python 3.13+ is not supported by psycopg2 at this time.
 ✔ Swagger documentation
 ✔ Postman testing
 ✔ Caching enabled
+
+## Diagrams
+
+```mermaid
+classDiagram
+    class User {
+        +int id
+        +string email
+        +string password_hash
+        +datetime created_at
+    }
+
+    class Session {
+        +int id
+        +string tmdb_guest_session_id
+        +string tmdb_user_session_id
+        +datetime created_at
+    }
+
+    User "1" --> "many" Session : has
+```
+
+```mermaid
+classDiagram
+    class Session {
+        +int id
+        +string tmdb_guest_session_id
+        +string tmdb_user_session_id
+        +datetime created_at
+    }
+```
