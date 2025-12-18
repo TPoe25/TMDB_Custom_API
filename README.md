@@ -76,19 +76,19 @@ Postman
 ## Quick Start
 
 ### Clone the repository
-
+```
 git clone <http://github.com/TPoe25/TMDB_Custom_API>
 cd TMDB_Custom_API
-
+```
 ## Create and activate virtual environment
-
+```
 python3 -m venv venv
 source venv/bin/activate
-
+```
 ## Install dependencies
-
+```
 pip install -r requirements.txt
-
+```
 # Configure environment variables
 
 ## Create a .env file in the project root
