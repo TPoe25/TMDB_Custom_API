@@ -9,6 +9,53 @@ This project uses The Movie Database (TMDB) API but is not endorsed or certified
 
 ## Author: Taylor Poe
 
+```
+TMDB_Custom_API/
+├── api/
+│   ├── __init__.py
+│   ├── app.py                  # Flask app entry point
+│   ├── config.py               # Environment & Swagger config
+│   ├── extensions.py           # DB, cache, socket setup
+│   ├── tmdb_client.py          # TMDB API wrapper
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── health.py           # Health check endpoints
+│   │   ├── auth.py             # Guest & user session auth
+│   │   ├── movies.py           # Movie searching and details
+│   │   ├── tv.py               # TV show searching and details
+│   │   └── trending.py         # Trending movies and tv
+│   └── models/
+│       ├── __init__.py
+│       ├── user.py             # User model
+│       └── session.py          # Session persistence
+│
+├── sql/
+│   ├── create_tables.sql       # Database schema
+│   └── indexes.sql             # Database indexes
+│
+├── tests/
+│   ├── test_health.py          # Health endpoint test
+│   └── test_user.py            # User/session tests
+│
+├── Design Documents/
+│   ├── 00_project_proposal.md
+│   ├── 01_api_documentation.md # API overview
+│   ├── 02_database_uml.mmd     
+│   ├── 03-wireframes.md        
+│   └── images/
+│       └── primary_logo.svg    # TMDB branding and data credit -- thank you TMDB
+│
+├── TMDB Companion API.postman_collection.json
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── .env                        # Local venv secrets (not committed)
+│
+├── node_modules/               
+├── package.json
+└── package-lock.json
+```
+
 
 A Flask-based REST API that proxies and extends The Movie Database (TMDB), providing movie and TV discovery, search, trending data, and session management.
 The application runs fully locally with PostgreSQL and is tested via Postman.
@@ -153,21 +200,10 @@ Authentication endpoints are not cached
 ### Python Version
 
 ```
-This project is developed and tested with **Python 3.11**.
+- This project is developed and tested with **Python 3.11**
+- Python 3.13+ is not supported by psycopg2 at this time.
 ```
 
-```
-Python 3.13+ is not supported by psycopg2 at this time.
-```
-
-### Project Status
-
-✔ Core API complete
-✔ TMDB integration working
-✔ Local PostgreSQL persistence
-✔ Swagger documentation
-✔ Postman testing
-✔ Caching enabled
 
 ## Diagrams
 
@@ -188,14 +224,4 @@ classDiagram
     }
 
     User "1" --> "many" Session : has
-```
-
-```mermaid
-classDiagram
-    class Session {
-        +int id
-        +string tmdb_guest_session_id
-        +string tmdb_user_session_id
-        +datetime created_at
-    }
 ```
